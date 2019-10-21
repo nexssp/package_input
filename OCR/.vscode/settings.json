@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "C:\\Users\\mapoart\\scoop\\shims\\python3.exe",
+    "python.formatting.provider": "black"
+}

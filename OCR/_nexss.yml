@@ -1,0 +1,6 @@
+name: OCR
+debug: true
+input: null
+data: null
+files:
+  - name: src/ocr.py
