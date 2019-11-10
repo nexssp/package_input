@@ -6,10 +6,10 @@ Convert Image to Text.
 
 ```sh
 # First we need to capture screen region and save it as 1.png
-# (this also will work without parameters as the parameter 'file' is the same.)
-nexss Screen/Capture --file=1.png # We capture the screenshot of mouse selection.
 
-nexss Input/OCR --file=1.png # COnvert to text
+nexss Screen/Capture --file=1.png # We capture the screenshot of mouse selection.
+nexss Input/OCR --file=1.png # Convert to text
+
 ```
 
 ## Credits
