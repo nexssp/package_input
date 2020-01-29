@@ -2,11 +2,16 @@ name: OCR
 debug: true
 input:
   - name: file
+    validate:
+      - type: required
 output:
   - name: text
+    validate:
+      - type: required
+        message: my custom message
 data: null
 commands:
   - name: init
-    command: python -m pip install --upgrade pip && python -m pip install pytesseract
+    command: python -m pip install --upgrade pip && python -m pip install pytesseract && scoop install tesseract
 files:
   - name: src/ocr.py

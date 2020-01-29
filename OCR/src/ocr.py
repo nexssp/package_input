@@ -5,6 +5,7 @@ import platform
 import json
 import sys
 import os
+from os import path
 
 try:
     from PIL import Image, ImageEnhance, ImageFilter
@@ -43,9 +44,14 @@ if not "file" in parsedJson:
     parsedJson["error"] = "You need to pass image file to parse."
 else:
     if not ":"+os.path.sep in parsedJson["file"]:
-        resultText = ocr(parsedJson["cwd"] + "/" + parsedJson["file"])
+        p = parsedJson["cwd"] + "/" + parsedJson["file"]
     else:
-        resultText = ocr(parsedJson["file"])
+        p = parsedJson["file"]
+
+    if not path.exists(p):
+        sys.stdout.write("File not found", p)
+
+    resultText = ocr(p)
 
     parsedJson["text"] = resultText
 
