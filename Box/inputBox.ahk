@@ -24,7 +24,7 @@ if (ErrorLevel){
 }   
 else{
 
-    NexssStdout[NexssStdout.resultField_1]:=ReturnValue
+    NexssStdout[resultField_1]:=ReturnValue
 }
 
 ; NexssStdout.Delete("start")
