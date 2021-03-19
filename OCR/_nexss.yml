@@ -4,11 +4,12 @@ input:
   - name: file
     validate:
       - type: required
+        message: You need to pass image file to parse.
 output:
   - name: text
     validate:
       - type: required
-        message: my custom message
+        message: OCR should return text from the image.
 data: null
 commands:
   - name: init
