@@ -1,4 +1,4 @@
-# Nexss PROGRAMMER 2.0.0 - Python3
+# Nexss PROGRAMMER 2.x - Python3
 # OCR image
 
 import platform
@@ -43,7 +43,7 @@ def ocr(filename):
 if not "file" in parsedJson:
     parsedJson["error"] = "You need to pass image file to parse."
 else:
-    if not ":"+os.path.sep in parsedJson["file"]:
+    if not ":" + os.path.sep in parsedJson["file"]:
         p = parsedJson["cwd"] + "/" + parsedJson["file"]
     else:
         p = parsedJson["file"]
