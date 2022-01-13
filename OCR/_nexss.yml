@@ -3,7 +3,7 @@ debug: true
 input:
   - name: file
     validate:
-      - type: required
+      - type: requiredOrIn
         message: You need to pass image file to parse.
 output:
   - name: text
@@ -13,6 +13,6 @@ output:
 data: null
 commands:
   - name: init
-    command: python -m pip install --upgrade pip && python -m pip install pytesseract && scoop install tesseract
+    command: nexss py install && nexss py install --upgrade pip && nexss py install pytesseract && scoop install tesseract
 files:
   - name: src/ocr.py

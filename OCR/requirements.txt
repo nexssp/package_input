@@ -1,9 +1,9 @@
 appdirs==1.4.4
-attrs==21.2.0
-autopep8==1.5.7
+attrs==21.4.0
+autopep8==1.6.0
 black==19.3b0
-Click==8.0.1
-Pillow==8.3.2
-pycodestyle==2.7.0
+Click==8.0.3
+Pillow==9.0.0
+pycodestyle==2.8.0
 pytesseract==0.3.8
 toml==0.10.2

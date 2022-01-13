@@ -7,6 +7,11 @@ import sys
 import os
 from os import path
 
+sys.path.append(os.path.join(os.getenv(
+    "NEXSS_PACKAGES_PATH"), "Nexss", "Lib"))
+
+from NexssLog import nxsInfo, nxsOk, nxsWarn, nxsError
+
 try:
     from PIL import Image, ImageEnhance, ImageFilter
 except ImportError:
@@ -21,6 +26,9 @@ parsedJson = json.loads(NexssStdin)
 # parsedJson["test"] = "test"
 # config = "-c tessedit_char_whitelist=0123456789X"
 config = ""
+
+if "nxsIn" in parsedJson.keys():
+    parsedJson['file'] = parsedJson['nxsIn'][0]
 
 
 def ocr(filename):
@@ -44,12 +52,13 @@ if not "file" in parsedJson:
     parsedJson["error"] = "You need to pass image file to parse."
 else:
     if not ":" + os.path.sep in parsedJson["file"]:
-        p = parsedJson["cwd"] + "/" + parsedJson["file"]
+        p = os.path.join(parsedJson["cwd"], parsedJson["file"])
     else:
         p = parsedJson["file"]
 
     if not path.exists(p):
-        sys.stdout.write("File not found", p)
+        nxsError("File not found: " + p)
+        sys.exit(1)
 
     resultText = ocr(p)
 
